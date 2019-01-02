@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" name="author" content="kk"/>
+    <title></title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<div id="app">
+<table>
+    <form >
+    商品名称：<input type="text" v-model="newOrder.goods_name" /><br>
+    商品&nbsp;&nbsp;&nbsp;ID：<input type="text" v-model="newOrder.goods_id" /><br>
+    商品价格：<input type="text" v-model="newOrder.goods_price" /><br>
+    交易状态：<input type="text" v-model="newOrder.status" /><br>
+    用户名称：<input type="text" v-model="newOrder.user_name" /><br>
+    用户地址：<input type="text" v-model="newOrder.user_address" /><br>
+    <button @click="addOrder()">添加订单</button>
+    </form>
+    <thead >
+        <tr>
+            <th>商品名称</th>
+            <th>商品ID</th>
+            <th>商品价格</th>
+            <th>交易状态</th>
+            <th>用户名称</th>
+            <th>用户地址</th>
+            <th>订单更改</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!--<tr>-->
+            <!--<form>-->
+                <!--<input type="text" v-model="newOrder.goods_name"  />-->
+                <!--<input type="text" v-model="newOrder.goods_id" />-->
+                <!--<input type="text" v-model="newOrder.goods_price" />-->
+                <!--<input type="text" v-model="newOrder.status" />-->
+                <!--<input type="text" v-model="newOrder.user_name" />-->
+                <!--<input type="text" v-model="newOrder.user_address" />-->
+                <!--<input type="submit" @click="addOrder()"/>-->
+            <!--</form>-->
+
+        <!--</tr>-->
+        <tr v-for="(order,orderId) in orders">
+            <td>{{order.goods_name}}</td>
+            <td>{{order.goods_id}}</td>
+            <td>{{order.goods_price}}</td>
+            <td>{{order.status}}</td>
+            <td>{{order.user_name}}</td>
+            <td>{{order.user_address}}</td>
+            <td :class="deleteOrder"><button @click="deleteOrder(orderId)">删除订单</button></td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<script src="js/vue.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>
